@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Rooms</h2>
+
+<table border="1">
+<tr>
+    <th>Room Number</th>
+    <th>Type</th>
+    <th>Price</th>
+</tr>
+{% for r in rooms %}
+<tr>
+    <td>{{ r.room_number }}</td>
+    <td>{{ r.room_type }}</td>
+    <td>{{ r.price }}</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

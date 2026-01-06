@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>
+{% if booking %} Edit Booking {% else %} Add Booking {% endif %}
+</h2>
+
+<form method="post">
+
+Guest:
+<select name="guest_id">
+{% for g in guests %}
+    <option value="{{ g.id }}"
+        {% if booking and g.id == booking.guest_id %}selected{% endif %}>
+        {{ g.name }}
+    </option>
+{% endfor %}
+</select>
+<br><br>
+
+Room:
+<select name="room_id">
+{% for r in rooms %}
+    <option value="{{ r.id }}"
+        {% if booking and r.id == booking.room_id %}selected{% endif %}>
+        {{ r.room_number }}
+    </option>
+{% endfor %}
+</select>
+<br><br>
+
+Check In:
+<input type="date" name="check_in"
+       value="{{ booking.check_in if booking }}">
+<br><br>
+
+Check Out:
+<input type="date" name="check_out"
+       value="{{ booking.check_out if booking }}">
+<br><br>
+
+<button type="submit">
+{% if booking %} Update Booking {% else %} Add Booking {% endif %}
+</button>
+
+</form>
+
+{% endblock %}
