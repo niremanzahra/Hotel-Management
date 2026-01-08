@@ -39,7 +39,7 @@ def add_room():
 
         db.session.add(room)
         db.session.commit()
-        return redirect('/rooms')
+        return redirect(url_for('rooms'))
 
     return render_template('add_room.html')
 
@@ -60,7 +60,7 @@ def add_guest():
         )
         db.session.add(guest)               # CREATE
         db.session.commit()
-        return redirect('/guests')
+        return redirect(url_for('guests'))
     return render_template('add_guest.html')
 
 
@@ -135,7 +135,8 @@ def add_booking():
             db.session.add(booking)
 
         db.session.commit()
-        return redirect('/bookings')
+        return redirect(url_for('bookings'))
+
 
     return render_template(
         'add_booking.html',
