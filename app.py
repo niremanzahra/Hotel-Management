@@ -39,7 +39,7 @@ def add_room():
 
         db.session.add(room)
         db.session.commit()
-        return redirect('/rooms')
+        return redirect(url_for('rooms'))
 
     return render_template('add_room.html')
 
